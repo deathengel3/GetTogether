@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using GetTogether.Extensions;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Hosting;
@@ -25,6 +26,10 @@ namespace GetTogether
 
         public void ConfigureServices(IServiceCollection services)
         {
+            //ServicesExtensionsClass
+            services.ConfigureCors();
+            services.ConfigureServices();
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 
@@ -58,7 +63,7 @@ namespace GetTogether
             });
 
             app.UseStaticFiles();
-
+            //app.UseHttpsRedirection();
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
