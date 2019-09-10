@@ -5,8 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Services\" />
-    <Folder Include="Persistence\" />
+    <ProjectReference Include="..\GetTogether.Data\GetTogether.Data.csproj" />
   </ItemGroup>
 
 </Project>

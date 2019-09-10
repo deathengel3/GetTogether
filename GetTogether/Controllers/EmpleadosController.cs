@@ -14,16 +14,16 @@ namespace GetTogether.Controllers
     public class EmpleadosController : ControllerBase
     {
         //Inyección de dependencias
-        private readonly IEmpleadoRepo _empleadoRepo;
-        public EmpleadosController(IEmpleadoRepo empleadoRepositorio)
+        private readonly IEmpleadoService _empleadoService;
+        public EmpleadosController(IEmpleadoService empleadoService)
         {
-            _empleadoRepo = empleadoRepositorio;
+            _empleadoService = empleadoService;
         }
 
         [HttpGet]
         public async Task<IEnumerable<Empleado>> ObtenerEmpleados()
         {
-            var empleados = await _empleadoRepo.ObtenerEmpleados();
+            var empleados = await _empleadoService.ObtenerEmpleados();
 
             return empleados;
         }

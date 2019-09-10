@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GetTogether.Data.Repos
 {
-    public interface IEmpleadoRepo
+    public interface IEmpleadoService
     {
         Task<IEnumerable<Empleado>> ObtenerEmpleados();
         Task<Empleado> ObtenerEmpleadosPorId(int numeroEmpleado);
