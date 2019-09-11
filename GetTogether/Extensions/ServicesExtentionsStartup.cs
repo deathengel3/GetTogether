@@ -15,6 +15,14 @@ namespace GetTogether.Extensions
 {
     public static class ServicesExtentionsStartup
     {
+        public static void ConfigureDataBase(this IServiceCollection services, IConfiguration _config)
+        {
+            services.AddDbContext<AppDbcontext>(options =>
+            {
+                options.UseSqlServer(_config.GetConnectionString("DefaultConnection").ToString());
+            });
+        }
+
         public static void ConfigureCors(this IServiceCollection services)
         {
             services.AddCors(options =>
@@ -26,6 +34,7 @@ namespace GetTogether.Extensions
                     .AllowCredentials());
             });
         }
+
         public static void ConfigureServices(this IServiceCollection services)
         {
             services.AddScoped<IEmpleadoRepository, EmpleadoRepository>();

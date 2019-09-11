@@ -29,13 +29,10 @@ namespace GetTogether
         public void ConfigureServices(IServiceCollection services)
         {
             //Base de datos
-            services.AddDbContext<AppDbcontext>(options =>
-            {
-                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection").ToString());
-            });
-
-            //ServicesExtensionsClass
+            services.ConfigureDataBase(Configuration);
+            //Configure CORS
             services.ConfigureCors();
+            //ServicesExtensionsClass
             services.ConfigureServices();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
