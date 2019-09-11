@@ -12,6 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\GetTogether.Core\GetTogether.Core.csproj" />
     <ProjectReference Include="..\GetTogether.Data\GetTogether.Data.csproj" />
   </ItemGroup>
 

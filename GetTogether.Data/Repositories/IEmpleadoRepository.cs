@@ -8,7 +8,7 @@ namespace GetTogether.Data.Repositories
 {
     public interface IEmpleadoRepository
     {
-        Task<IEnumerable<Empleado>> ObtenerEmpleados();
+        Task<IList<Empleado>> ObtenerEmpleados();
         Task<Empleado> ObtenerEmpleadosPorId(int numeroEmpleado);
         Task<Empleado> CrearEmpleado(Empleado empleado);
         Task<int> ActualizarEmpleado(Empleado empleadoAct);

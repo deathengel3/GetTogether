@@ -1,27 +1,22 @@
-﻿using GetTogether.Data.Models;
-using GetTogether.Data.Repos;
+﻿using GetTogether.Core.Persistance.Contexts;
+using GetTogether.Data.Models;
 using GetTogether.Data.Repositories;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GetTogether.Core.Services
+namespace GetTogether.Core.Persistance.Repositories
 {
-    public class EmpleadoService : IEmpleadoService
+    public class EmpleadoRepository : BaseRepository, IEmpleadoRepository
     {
-        private readonly IEmpleadoRepository _empleadoRepo;
-        public EmpleadoService(IEmpleadoRepository empleadoRepository)
-        {
-            _empleadoRepo = empleadoRepository;
-        }
+        public EmpleadoRepository(AppDbcontext context) : base(context) { }
 
         public async Task<IList<Empleado>> ObtenerEmpleados()
         {
-            return await _empleadoRepo.ObtenerEmpleados();
+            return await _context.Empleados.ToListAsync();
         }
-
-        // AGREGAR ASYNC A TODOS LOS MÉTODOS PARA REGRESAR UN VALOR
         public Task<Empleado> ObtenerEmpleadosPorId(int numeroEmpleado)
         {
             throw new NotImplementedException();

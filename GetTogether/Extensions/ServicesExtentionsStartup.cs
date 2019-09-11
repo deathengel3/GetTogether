@@ -1,4 +1,11 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using GetTogether.Core.Persistance.Contexts;
+using GetTogether.Core.Persistance.Repositories;
+using GetTogether.Core.Services;
+using GetTogether.Data.Repos;
+using GetTogether.Data.Repositories;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,7 +28,8 @@ namespace GetTogether.Extensions
         }
         public static void ConfigureServices(this IServiceCollection services)
         {
-            
+            services.AddScoped<IEmpleadoRepository, EmpleadoRepository>();
+            services.AddScoped<IEmpleadoService, EmpleadoService>();
         }
     }
 }

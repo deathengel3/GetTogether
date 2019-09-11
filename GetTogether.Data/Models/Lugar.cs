@@ -8,9 +8,10 @@ namespace GetTogether.Data.Models
     public class Lugar
     {
         public int IdLugar { get; set; }
-        public int NombreLugar { get; set; }
-        public int DireccionLugar { get; set; }
+        public string NombreLugar { get; set; }
+        public string DireccionLugar { get; set; }
         public IEnumerable<OpcionComida> OpcionesComida { get; set; }
         public DateTime FechaLugar { get; set; }
+        public IEnumerable<Votacion> Votacion { get; set; }
     }
 }

@@ -12,5 +12,7 @@ namespace GetTogether.Data.Models
         public int LugarId { get; set; }
         public Lugar Lugar { get; set; }
         public DateTime FechaOpcion {get; set;}
+        //public int VotacionId { get; set; }
+        public IEnumerable<Votacion> Votacion { get; set; }
     }
 }

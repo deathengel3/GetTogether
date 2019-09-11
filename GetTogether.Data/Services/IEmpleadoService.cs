@@ -8,7 +8,7 @@ namespace GetTogether.Data.Repos
 {
     public interface IEmpleadoService
     {
-        Task<IEnumerable<Empleado>> ObtenerEmpleados();
+        Task<IList<Empleado>> ObtenerEmpleados();
         Task<Empleado> ObtenerEmpleadosPorId(int numeroEmpleado);
         Task<Empleado> CrearEmpleado(Empleado empleado);
         Task<int> ActualizarEmpleado(Empleado empleadoAct);
