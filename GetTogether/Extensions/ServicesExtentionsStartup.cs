@@ -1,4 +1,5 @@
-﻿using GetTogether.Core.Persistance.Contexts;
+﻿using AutoMapper;
+using GetTogether.Core.Persistance.Contexts;
 using GetTogether.Core.Persistance.Repositories;
 using GetTogether.Core.Services;
 using GetTogether.Data.Repos;
@@ -37,6 +38,7 @@ namespace GetTogether.Extensions
 
         public static void ConfigureServices(this IServiceCollection services)
         {
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddScoped<IEmpleadoRepository, EmpleadoRepository>();
             services.AddScoped<IEmpleadoService, EmpleadoService>();
         }

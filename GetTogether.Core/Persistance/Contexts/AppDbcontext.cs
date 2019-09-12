@@ -21,6 +21,7 @@ namespace GetTogether.Core.Persistance.Contexts
             builder.Entity<Empleado>().ToTable("Empleados");
             builder.Entity<Empleado>().HasKey(e => e.IdEmpleado); // LLave primaria
             builder.Entity<Empleado>().Property(e => e.IdEmpleado).IsRequired().HasColumnType("INT");//.ValueGeneratedOnAdd();
+            builder.Entity<Empleado>().Property(e => e.NumeroEmpleado).IsRequired().HasColumnType("INT");
             builder.Entity<Empleado>().Property(e => e.Nombre).IsRequired().HasMaxLength(250).HasColumnType("VARCHAR(250)");
             //builder.Entity<Empleado>().HasOne(e => e.Votacion).WithMany().HasForeignKey(e => e.VotacionId);
 

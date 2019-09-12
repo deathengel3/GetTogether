@@ -1,4 +1,5 @@
 ﻿using GetTogether.Data.Models;
+using GetTogether.Data.Services.Communication;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -8,10 +9,9 @@ namespace GetTogether.Data.Repos
 {
     public interface IEmpleadoService
     {
-        Task<IList<Empleado>> ObtenerEmpleados();
-        Task<Empleado> ObtenerEmpleadosPorId(int numeroEmpleado);
-        Task<Empleado> CrearEmpleado(Empleado empleado);
-        Task<int> ActualizarEmpleado(Empleado empleadoAct);
-        Task<int> EliminarEmpleado(int numeroEmpleado);
+        Task<IEnumerable<Empleado>> ObtenerEmpleadosAsync();
+        Task<Empleado> ObtenerEmpleadosPorNumEmpAsync(int numeroEmpleado);
+        Task<SaveEmpleadoResponse> CrearEmpleadoAsync(Empleado empleado);
+        Task<SaveEmpleadoResponse> ActualizarEmpleadoAsync(int numEmpleado, Empleado empleado);
     }
 }

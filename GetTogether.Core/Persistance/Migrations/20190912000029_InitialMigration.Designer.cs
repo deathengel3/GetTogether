@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GetTogether.Core.Persistance.Migrations
 {
     [DbContext(typeof(AppDbcontext))]
-    [Migration("20190911225516_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20190912000029_InitialMigration")]
+    partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -33,6 +33,9 @@ namespace GetTogether.Core.Persistance.Migrations
                         .HasColumnType("VARCHAR(250)")
                         .HasMaxLength(250);
 
+                    b.Property<int>("NumeroEmpleado")
+                        .HasColumnType("INT");
+
                     b.HasKey("IdEmpleado");
 
                     b.ToTable("Empleados");
@@ -53,7 +56,7 @@ namespace GetTogether.Core.Persistance.Migrations
                     b.Property<DateTime>("FechaLugar")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("DATETIME")
-                        .HasDefaultValue(new DateTime(2019, 9, 11, 17, 55, 15, 859, DateTimeKind.Local).AddTicks(6142));
+                        .HasDefaultValue(new DateTime(2019, 9, 11, 19, 0, 29, 110, DateTimeKind.Local).AddTicks(724));
 
                     b.Property<string>("NombreLugar")
                         .IsRequired()
@@ -83,7 +86,7 @@ namespace GetTogether.Core.Persistance.Migrations
                     b.Property<DateTime>("FechaOpcion")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("DATETIME")
-                        .HasDefaultValue(new DateTime(2019, 9, 11, 17, 55, 15, 872, DateTimeKind.Local).AddTicks(5595));
+                        .HasDefaultValue(new DateTime(2019, 9, 11, 19, 0, 29, 123, DateTimeKind.Local).AddTicks(4168));
 
                     b.Property<int>("LugarId");
 
@@ -111,12 +114,12 @@ namespace GetTogether.Core.Persistance.Migrations
                     b.Property<DateTime>("FechaModificacion")
                         .ValueGeneratedOnAddOrUpdate()
                         .HasColumnType("DATETIME")
-                        .HasDefaultValue(new DateTime(2019, 9, 11, 17, 55, 15, 873, DateTimeKind.Local).AddTicks(2331));
+                        .HasDefaultValue(new DateTime(2019, 9, 11, 19, 0, 29, 124, DateTimeKind.Local).AddTicks(842));
 
                     b.Property<DateTime>("FechaRegistro")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("DATETIME")
-                        .HasDefaultValue(new DateTime(2019, 9, 11, 17, 55, 15, 873, DateTimeKind.Local).AddTicks(1602));
+                        .HasDefaultValue(new DateTime(2019, 9, 11, 19, 0, 29, 124, DateTimeKind.Local).AddTicks(121));
 
                     b.Property<int>("OpcionComidaId");
 

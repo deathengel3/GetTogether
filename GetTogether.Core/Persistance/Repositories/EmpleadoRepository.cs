@@ -13,28 +13,23 @@ namespace GetTogether.Core.Persistance.Repositories
     {
         public EmpleadoRepository(AppDbcontext context) : base(context) { }
 
-        public async Task<IList<Empleado>> ObtenerEmpleados()
+        public async Task<IEnumerable<Empleado>> ObtenerEmpleadosAsync()
         {
             return await _context.Empleados.ToListAsync();
         }
-        public Task<Empleado> ObtenerEmpleadosPorId(int numeroEmpleado)
+        public async Task<Empleado> ObtenerEmpleadosPorNumEmpAsync(int numeroEmpleado)
         {
-            throw new NotImplementedException();
+            return await _context.Empleados.FirstOrDefaultAsync(e => e.IdEmpleado == numeroEmpleado);
         }
 
-        public Task<int> ActualizarEmpleado(Empleado empleadoAct)
+        public async Task CrearEmpleadoAsync(Empleado empleado)
         {
-            throw new NotImplementedException();
+            await _context.Empleados.AddAsync(empleado);
         }
 
-        public Task<Empleado> CrearEmpleado(Empleado empleado)
+        public void ActualizarEmpleado(Empleado empleado)
         {
-            throw new NotImplementedException();
-        }
-
-        public Task<int> EliminarEmpleado(int numeroEmpleado)
-        {
-            throw new NotImplementedException();
+            _context.Empleados.Update(empleado);
         }
     }
 }

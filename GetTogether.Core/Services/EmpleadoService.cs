@@ -1,6 +1,7 @@
 ﻿using GetTogether.Data.Models;
 using GetTogether.Data.Repos;
 using GetTogether.Data.Repositories;
+using GetTogether.Data.Services.Communication;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -11,35 +12,59 @@ namespace GetTogether.Core.Services
     public class EmpleadoService : IEmpleadoService
     {
         private readonly IEmpleadoRepository _empleadoRepo;
-        public EmpleadoService(IEmpleadoRepository empleadoRepository)
+        private readonly IUnitOfWork _unitOfWork;
+        public EmpleadoService(IEmpleadoRepository empleadoRepository, IUnitOfWork unitOfWork)
         {
             _empleadoRepo = empleadoRepository;
+            _unitOfWork = unitOfWork;
         }
 
-        public async Task<IList<Empleado>> ObtenerEmpleados()
+        public async Task<IEnumerable<Empleado>> ObtenerEmpleadosAsync()
         {
-            return await _empleadoRepo.ObtenerEmpleados();
+            return await _empleadoRepo.ObtenerEmpleadosAsync();
         }
 
         // AGREGAR ASYNC A TODOS LOS MÉTODOS PARA REGRESAR UN VALOR
-        public Task<Empleado> ObtenerEmpleadosPorId(int numeroEmpleado)
+        public async Task<Empleado> ObtenerEmpleadosPorNumEmpAsync(int numeroEmpleado)
         {
-            throw new NotImplementedException();
+            return await _empleadoRepo.ObtenerEmpleadosPorNumEmpAsync(numeroEmpleado);
         }
 
-        public Task<int> ActualizarEmpleado(Empleado empleadoAct)
+        public async Task<SaveEmpleadoResponse> CrearEmpleadoAsync(Empleado empleado)
         {
-            throw new NotImplementedException();
+            try
+            {
+                await _empleadoRepo.CrearEmpleadoAsync(empleado);
+                await _unitOfWork.CompletarTareaAsync();
+
+                return new SaveEmpleadoResponse(empleado);
+            }
+            catch (Exception ex)
+            {
+                return new SaveEmpleadoResponse($"Ocurrió un error inesperado al guardar la información: {ex.Message}");
+            }
         }
 
-        public Task<Empleado> CrearEmpleado(Empleado empleado)
+        public async Task<SaveEmpleadoResponse> ActualizarEmpleadoAsync(int numEmpleado, Empleado empleado)
         {
-            throw new NotImplementedException();
-        }
+            var empleadoExistente = await _empleadoRepo.ObtenerEmpleadosPorNumEmpAsync(numEmpleado);
 
-        public Task<int> EliminarEmpleado(int numeroEmpleado)
-        {
-            throw new NotImplementedException();
+            if (empleadoExistente == null)
+                return new SaveEmpleadoResponse("El empleado que intenta actualizar no exite en la Base de Datos.");
+
+            empleadoExistente.Nombre = empleado.Nombre;
+
+            try
+            {
+                _empleadoRepo.ActualizarEmpleado(empleadoExistente);
+                await _unitOfWork.CompletarTareaAsync();
+
+                return new SaveEmpleadoResponse(empleadoExistente);
+            }
+            catch (Exception ex)
+            {
+                return new SaveEmpleadoResponse($"Ocurrió un error inesperado al guardar la información: {ex.Message}");
+            }
         }
     }
 }

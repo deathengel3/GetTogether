@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace GetTogether.Core.Persistance.Migrations
 {
-    public partial class InitialCreate : Migration
+    public partial class InitialMigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -14,6 +14,7 @@ namespace GetTogether.Core.Persistance.Migrations
                 {
                     IdEmpleado = table.Column<int>(type: "INT", nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    NumeroEmpleado = table.Column<int>(type: "INT", nullable: false),
                     Nombre = table.Column<string>(type: "VARCHAR(250)", maxLength: 250, nullable: false)
                 },
                 constraints: table =>
@@ -29,7 +30,7 @@ namespace GetTogether.Core.Persistance.Migrations
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     NombreLugar = table.Column<string>(type: "VARCHAR(250)", maxLength: 250, nullable: false),
                     DireccionLugar = table.Column<string>(type: "VARCHAR(250)", maxLength: 250, nullable: false),
-                    FechaLugar = table.Column<DateTime>(type: "DATETIME", nullable: false, defaultValue: new DateTime(2019, 9, 11, 17, 55, 15, 859, DateTimeKind.Local).AddTicks(6142))
+                    FechaLugar = table.Column<DateTime>(type: "DATETIME", nullable: false, defaultValue: new DateTime(2019, 9, 11, 19, 0, 29, 110, DateTimeKind.Local).AddTicks(724))
                 },
                 constraints: table =>
                 {
@@ -46,7 +47,7 @@ namespace GetTogether.Core.Persistance.Migrations
                     Descripcion = table.Column<string>(type: "VARCHAR(250)", maxLength: 250, nullable: false),
                     Costo = table.Column<decimal>(type: "DECIMAL(18, 2)", nullable: false),
                     LugarId = table.Column<int>(nullable: false),
-                    FechaOpcion = table.Column<DateTime>(type: "DATETIME", nullable: false, defaultValue: new DateTime(2019, 9, 11, 17, 55, 15, 872, DateTimeKind.Local).AddTicks(5595))
+                    FechaOpcion = table.Column<DateTime>(type: "DATETIME", nullable: false, defaultValue: new DateTime(2019, 9, 11, 19, 0, 29, 123, DateTimeKind.Local).AddTicks(4168))
                 },
                 constraints: table =>
                 {
@@ -67,8 +68,8 @@ namespace GetTogether.Core.Persistance.Migrations
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     EmpleadoId = table.Column<int>(nullable: false),
                     OpcionComidaId = table.Column<int>(nullable: false),
-                    FechaRegistro = table.Column<DateTime>(type: "DATETIME", nullable: false, defaultValue: new DateTime(2019, 9, 11, 17, 55, 15, 873, DateTimeKind.Local).AddTicks(1602)),
-                    FechaModificacion = table.Column<DateTime>(type: "DATETIME", nullable: false, defaultValue: new DateTime(2019, 9, 11, 17, 55, 15, 873, DateTimeKind.Local).AddTicks(2331)),
+                    FechaRegistro = table.Column<DateTime>(type: "DATETIME", nullable: false, defaultValue: new DateTime(2019, 9, 11, 19, 0, 29, 124, DateTimeKind.Local).AddTicks(121)),
+                    FechaModificacion = table.Column<DateTime>(type: "DATETIME", nullable: false, defaultValue: new DateTime(2019, 9, 11, 19, 0, 29, 124, DateTimeKind.Local).AddTicks(842)),
                     RegistroActivo = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
