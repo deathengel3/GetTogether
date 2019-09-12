@@ -8,9 +8,10 @@ namespace GetTogether.Data.Repositories
 {
     public interface IEmpleadoRepository
     {
-        Task<IEnumerable<Empleado>> ObtenerEmpleadosAsync();
-        Task<Empleado> ObtenerEmpleadosPorNumEmpAsync(int numeroEmpleado);
-        Task CrearEmpleadoAsync(Empleado empleado);
-        void ActualizarEmpleado(Empleado empleado);
+        Task<IEnumerable<Empleado>> GetAllAsync();
+        Task<Empleado> FindByNumEmpleado(int numeroEmpleado);
+        Task CreateAsync(Empleado empleado);
+        void Update(Empleado empleado);
+        void Delete(Empleado empleado);
     }
 }

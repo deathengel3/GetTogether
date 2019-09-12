@@ -15,7 +15,7 @@ namespace GetTogether.Core.Persistance.Repositories
             _context = context;
         }
 
-        public async Task CompletarTareaAsync()
+        public async Task CompleteAsync()
         {
             await _context.SaveChangesAsync();
         }

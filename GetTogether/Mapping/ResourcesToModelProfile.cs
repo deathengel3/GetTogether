@@ -13,6 +13,8 @@ namespace GetTogether.Mapping
         public ResourcesToModelProfile()
         {
             CreateMap<SaveEmpleadoResource, Empleado>();
+            CreateMap<SaveLugarResource, Lugar>();
+            CreateMap<SaveOpcionComidaResource, OpcionComida>();
         }
     }
 }

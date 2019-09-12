@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
 using GetTogether.Data.Models;
-using GetTogether.Data.Repos;
+using GetTogether.Data.Services;
 using GetTogether.Data.Resources;
 using GetTogether.Extensions;
 using Microsoft.AspNetCore.Http;
@@ -83,6 +83,22 @@ namespace GetTogether.Controllers
                 return BadRequest(resultado.Message);
 
             //Si todo salió bien regresa un objeto empleado mapeado para regresar los datos enviados por el usuario
+            var empleadoResource = _mapper.Map<Empleado, EmpleadoResource>(resultado.Empleado);
+
+            return Ok(empleadoResource);
+        }
+
+        [HttpDelete("{numEmpleado}")]
+        public async Task<IActionResult> EliminarEmpleado(int numEmpleado)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState.GetErrorMessages());
+
+            var resultado = await _empleadoService.EliminarEmpleadoAsync(numEmpleado);
+
+            if (!resultado.Success)
+                return BadRequest(resultado.Message);
+
             var empleadoResource = _mapper.Map<Empleado, EmpleadoResource>(resultado.Empleado);
 
             return Ok(empleadoResource);

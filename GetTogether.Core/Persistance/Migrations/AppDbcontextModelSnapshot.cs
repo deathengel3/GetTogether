@@ -54,7 +54,12 @@ namespace GetTogether.Core.Persistance.Migrations
                     b.Property<DateTime>("FechaLugar")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("DATETIME")
-                        .HasDefaultValue(new DateTime(2019, 9, 11, 19, 0, 29, 110, DateTimeKind.Local).AddTicks(724));
+                        .HasDefaultValue(new DateTime(2019, 9, 12, 18, 0, 1, 183, DateTimeKind.Local).AddTicks(303));
+
+                    b.Property<DateTime>("FechaLugarModificacion")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("DATETIME")
+                        .HasDefaultValue(new DateTime(2019, 9, 12, 18, 0, 1, 192, DateTimeKind.Local).AddTicks(8696));
 
                     b.Property<string>("NombreLugar")
                         .IsRequired()
@@ -84,7 +89,12 @@ namespace GetTogether.Core.Persistance.Migrations
                     b.Property<DateTime>("FechaOpcion")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("DATETIME")
-                        .HasDefaultValue(new DateTime(2019, 9, 11, 19, 0, 29, 123, DateTimeKind.Local).AddTicks(4168));
+                        .HasDefaultValue(new DateTime(2019, 9, 12, 18, 0, 1, 197, DateTimeKind.Local).AddTicks(636));
+
+                    b.Property<DateTime>("FechaOpcionModificacion")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("DATETIME")
+                        .HasDefaultValue(new DateTime(2019, 9, 12, 18, 0, 1, 197, DateTimeKind.Local).AddTicks(1432));
 
                     b.Property<int>("LugarId");
 
@@ -112,12 +122,12 @@ namespace GetTogether.Core.Persistance.Migrations
                     b.Property<DateTime>("FechaModificacion")
                         .ValueGeneratedOnAddOrUpdate()
                         .HasColumnType("DATETIME")
-                        .HasDefaultValue(new DateTime(2019, 9, 11, 19, 0, 29, 124, DateTimeKind.Local).AddTicks(842));
+                        .HasDefaultValue(new DateTime(2019, 9, 12, 18, 0, 1, 197, DateTimeKind.Local).AddTicks(8035));
 
                     b.Property<DateTime>("FechaRegistro")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("DATETIME")
-                        .HasDefaultValue(new DateTime(2019, 9, 11, 19, 0, 29, 124, DateTimeKind.Local).AddTicks(121));
+                        .HasDefaultValue(new DateTime(2019, 9, 12, 18, 0, 1, 197, DateTimeKind.Local).AddTicks(7337));
 
                     b.Property<int>("OpcionComidaId");
 
@@ -135,7 +145,7 @@ namespace GetTogether.Core.Persistance.Migrations
 
             modelBuilder.Entity("GetTogether.Data.Models.OpcionComida", b =>
                 {
-                    b.HasOne("GetTogether.Data.Models.Lugar", "Lugar")
+                    b.HasOne("GetTogether.Data.Models.Lugar")
                         .WithMany("OpcionesComida")
                         .HasForeignKey("LugarId")
                         .OnDelete(DeleteBehavior.Cascade);
@@ -149,7 +159,7 @@ namespace GetTogether.Core.Persistance.Migrations
                         .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("GetTogether.Data.Models.OpcionComida", "OpcionComida")
-                        .WithMany("Votacion")
+                        .WithMany()
                         .HasForeignKey("OpcionComidaId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });

@@ -7,6 +7,6 @@ namespace GetTogether.Data.Repositories
 {
     public interface IUnitOfWork
     {
-        Task CompletarTareaAsync();
+        Task CompleteAsync();
     }
 }

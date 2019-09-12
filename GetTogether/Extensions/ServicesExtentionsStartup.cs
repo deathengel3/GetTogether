@@ -2,8 +2,8 @@
 using GetTogether.Core.Persistance.Contexts;
 using GetTogether.Core.Persistance.Repositories;
 using GetTogether.Core.Services;
-using GetTogether.Data.Repos;
 using GetTogether.Data.Repositories;
+using GetTogether.Data.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -39,8 +39,17 @@ namespace GetTogether.Extensions
         public static void ConfigureServices(this IServiceCollection services)
         {
             services.AddScoped<IUnitOfWork, UnitOfWork>();
+            //Empleados
             services.AddScoped<IEmpleadoRepository, EmpleadoRepository>();
             services.AddScoped<IEmpleadoService, EmpleadoService>();
+            
+            //Lugares
+            services.AddScoped<ILugarRepository, LugarRepository>();
+            services.AddScoped<ILugarService, LugarService>();
+
+            //OpcionesComida
+            services.AddScoped<IOpcionComidaRepository, OpcionComidaRepository>();
+            services.AddScoped<IOpcionComidaService, OpcionComidaService>();
         }
     }
 }
