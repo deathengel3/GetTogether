@@ -15,6 +15,7 @@ namespace GetTogether.Mapping
             CreateMap<SaveEmpleadoResource, Empleado>();
             CreateMap<SaveLugarResource, Lugar>();
             CreateMap<SaveOpcionComidaResource, OpcionComida>();
+            CreateMap<SaveVotacionesResource, Votacion>();
         }
     }
 }

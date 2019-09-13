@@ -34,7 +34,6 @@ namespace GetTogether.Core.Services
         {
             lugar.FechaLugar = DateTime.Now;
             lugar.FechaLugarModificacion = lugar.FechaLugar;
-            OpcionComida opcion = new OpcionComida();
             try
             {
                 await _lugarRepo.CreateAsync(lugar);

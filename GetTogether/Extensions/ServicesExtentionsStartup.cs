@@ -50,6 +50,10 @@ namespace GetTogether.Extensions
             //OpcionesComida
             services.AddScoped<IOpcionComidaRepository, OpcionComidaRepository>();
             services.AddScoped<IOpcionComidaService, OpcionComidaService>();
+
+            //Votaciones
+            services.AddScoped<IVotacionRepository, VotacionRepository>();
+            services.AddScoped<IVotacionService, VotacionService>();
         }
     }
 }
