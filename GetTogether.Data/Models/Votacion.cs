@@ -14,6 +14,7 @@ namespace GetTogether.Data.Models
         public Empleado Empleado { get; set; }
         public int OpcionComidaId { get; set; }
         public OpcionComida OpcionComida { get; set; }
+        //public int LugarId { get; set; }
         //public Lugar Lugar { get; set; }
         public DateTime FechaRegistro { get; set; }
         public DateTime FechaModificacion { get; set; }

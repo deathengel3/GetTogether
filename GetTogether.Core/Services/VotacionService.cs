@@ -1,5 +1,6 @@
 ﻿using GetTogether.Data.Models;
 using GetTogether.Data.Repositories;
+using GetTogether.Data.Resources;
 using GetTogether.Data.Services;
 using GetTogether.Data.Services.Communication;
 using System;

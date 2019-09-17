@@ -14,6 +14,5 @@ namespace GetTogether.Data.Models
         public IEnumerable<OpcionComida> OpcionesComida { get; set; }
         public DateTime FechaLugar { get; set; }
         public DateTime FechaLugarModificacion { get; set; }
-        //public IEnumerable<Votacion> Votacion { get; set; }
     }
 }

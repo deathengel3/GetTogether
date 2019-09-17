@@ -1,4 +1,5 @@
 ﻿using GetTogether.Data.Models;
+using GetTogether.Data.Resources;
 using System;
 using System.Collections.Generic;
 using System.Text;

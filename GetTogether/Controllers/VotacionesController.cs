@@ -30,6 +30,7 @@ namespace GetTogether.Controllers
             if (votaciones == null)
                 return NoContent();
 
+            //return Ok(votaciones);
             return Ok(_mapper.Map<IEnumerable<Votacion>, IEnumerable<VotacionesResource>>(votaciones));
         }
     }

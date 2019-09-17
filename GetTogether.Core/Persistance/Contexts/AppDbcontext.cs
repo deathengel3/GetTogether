@@ -53,7 +53,9 @@ namespace GetTogether.Core.Persistance.Contexts
             builder.Entity<Votacion>().Property(v => v.FechaRegistro).IsRequired().HasDefaultValue(DateTime.Now).ValueGeneratedOnAdd().HasColumnType("DATETIME");
             builder.Entity<Votacion>().Property(v => v.FechaModificacion).IsRequired().HasDefaultValue(DateTime.Now).ValueGeneratedOnAddOrUpdate().HasColumnType("DATETIME");
             builder.Entity<Votacion>().HasOne<Empleado>(v => v.Empleado).WithOne();
+            //builder.Entity<Votacion>().HasOne<Lugar>(v => v.Lugar).WithMany().HasForeignKey(v => v.LugarId);
             builder.Entity<Votacion>().HasOne<OpcionComida>(v => v.OpcionComida).WithMany().HasForeignKey(v => v.OpcionComidaId);
+
 
             base.OnModelCreating(builder);
         }
