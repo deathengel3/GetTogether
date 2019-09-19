@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 // MODULES
 import { AppRoutingModule } from './app-routing.module';
@@ -9,22 +9,33 @@ import { MaterialModule } from './material-module';
 //COMPONENTS
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { RouterModule } from '@angular/router';
 
 // SERVICES
 
+// Routes
+import { routes } from './app.routing';
+import { IndexModule } from './index/index.module';
+import { NoPageFoundModule } from './no-page-found/no-page-found.module';
+import { AdminHomeModule } from './admin-home/admin-home.module';
+import { UserHomeModule } from './user-home/user-home.module';
+
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     GridModule,
-    MaterialModule
+    MaterialModule,
+    IndexModule,
+    NoPageFoundModule,
+    AdminHomeModule,
+    UserHomeModule,
+    RouterModule.forRoot(routes, { useHash: true })
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule { }
