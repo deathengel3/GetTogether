@@ -5,7 +5,7 @@ export const AdminHomeRoutes: Route[] = [
     {
         path: '',
         component: AdminHomeComponent,
-        canActivate: [''],
+        //canActivate: [''],
         children: []
     }
 ]

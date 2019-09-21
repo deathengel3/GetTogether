@@ -5,7 +5,7 @@ export const UserHomeRoutes: Route[] = [
     {
         path: '',
         component: UserHomeComponent,
-        canActivate: [''],
+        //canActivate: [''],
         children: []
     }
 ]

@@ -5,7 +5,7 @@ export const NoPageFoundRoutes: Route[] = [
     {
         path: '',
         component: NoPageFoundComponent,
-        canActivate: [''],
+        //canActivate: [''],
         children: []
     }
 ]

@@ -4,4 +4,4 @@ import { AdminHomeRoutes } from './admin-home/admin-home.routes';
 import { NoPageFoundRoutes } from './no-page-found/no-page-found.routes';
 import { UserHomeRoutes } from './user-home/user-home.routes';
 
-export const routes: Routes = [...AdminHomeRoutes, ...IndexRoutes,  ...NoPageFoundRoutes, ...UserHomeRoutes];
+export const routes: Routes = [...IndexRoutes, ...AdminHomeRoutes, ...UserHomeRoutes, ...NoPageFoundRoutes];

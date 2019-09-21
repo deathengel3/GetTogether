@@ -9,7 +9,7 @@ import { MaterialModule } from './material-module';
 //COMPONENTS
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { RouterModule } from '@angular/router';
+import { RouterModule, PreloadAllModules } from '@angular/router';
 
 // SERVICES
 
@@ -32,7 +32,7 @@ import { UserHomeModule } from './user-home/user-home.module';
     NoPageFoundModule,
     AdminHomeModule,
     UserHomeModule,
-    RouterModule.forRoot(routes, { useHash: true })
+    RouterModule.forRoot(routes, { useHash: true, preloadingStrategy: PreloadAllModules, })
   ],
   providers: [],
   bootstrap: [AppComponent],
