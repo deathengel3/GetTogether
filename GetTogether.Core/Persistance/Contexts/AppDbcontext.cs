@@ -23,7 +23,7 @@ namespace GetTogether.Core.Persistance.Contexts
             builder.Entity<Empleado>().Property(e => e.IdEmpleado).IsRequired().HasColumnType("INT");//.ValueGeneratedOnAdd();
             builder.Entity<Empleado>().Property(e => e.NumeroEmpleado).IsRequired().HasColumnType("INT");
             builder.Entity<Empleado>().Property(e => e.Nombre).IsRequired().HasMaxLength(250).HasColumnType("VARCHAR(250)");
-            //builder.Entity<Empleado>().HasOne(e => e.Votacion).WithMany().HasForeignKey(e => e.VotacionId);
+            builder.Entity<Empleado>().Property(e => e.Rol).IsRequired().HasColumnType("INT");
 
             builder.Entity<Lugar>().ToTable("Lugares");
             builder.Entity<Lugar>().HasKey(l => l.IdLugar); // LLave primaria

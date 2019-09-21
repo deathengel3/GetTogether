@@ -54,6 +54,10 @@ namespace GetTogether.Extensions
             //Votaciones
             services.AddScoped<IVotacionRepository, VotacionRepository>();
             services.AddScoped<IVotacionService, VotacionService>();
+
+            // Login
+            services.AddScoped<ILoginRepository, LoginRepository>();
+            services.AddScoped<ILoginService, LoginService>();
         }
     }
 }

@@ -29,10 +29,10 @@ namespace GetTogether
 
         public void ConfigureServices(IServiceCollection services)
         {
-            //Base de datos
-            services.ConfigureDataBase(Configuration);
             //Configure CORS
             services.ConfigureCors();
+            //Base de datos
+            services.ConfigureDataBase(Configuration);
             //ServicesExtensionsClass
             services.ConfigureServices();
 
