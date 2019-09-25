@@ -4,10 +4,12 @@ import { CommonModule } from '@angular/common';
 // MODULES
 import { SharedComponentsModule } from '../../shared-components/shared-components.module';
 import { RouterModule } from '@angular/router';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 // COMPONENTS 
 import { LoginComponent } from './login.component';
 import { LoginRoutes } from './login.routes';
+import { MaterialModule } from 'src/app/material-module';
 
 
 
@@ -16,7 +18,10 @@ import { LoginRoutes } from './login.routes';
   imports: [
     RouterModule.forChild(LoginRoutes),
     CommonModule,
-    SharedComponentsModule
+    SharedComponentsModule,
+    MaterialModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   exports: [LoginComponent]
 })

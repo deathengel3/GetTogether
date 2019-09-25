@@ -1,16 +1,13 @@
 import { Route } from '@angular/router';
 import { IndexComponent } from './index.component';
+import { LoginGuard } from '../_guards/login.guard';
 
 export const IndexRoutes: Route[] = [
     {
         path: '',
         component: IndexComponent,
+        canActivate: [LoginGuard],
         children: [
-            {
-                path: '',
-                redirectTo: 'login',
-                pathMatch: 'full'
-            },
             {
                 path: 'login',
                 loadChildren: () => import('../index/login/login.module').then(i => i.LoginModule)

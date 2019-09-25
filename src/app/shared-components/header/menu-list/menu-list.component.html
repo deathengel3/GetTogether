@@ -1,0 +1,15 @@
+
+<div *ngIf="optionMenuList2 == 'login'">
+  <mat-menu #menuAyuda="matMenu">
+  <ng-template matMenuContent>
+    <button mat-menu-item>Acerca de...</button>
+  </ng-template>
+</mat-menu>
+<button mat-icon-button [matMenuTriggerFor]="menuAyuda">
+  <mat-icon>help_outline</mat-icon>
+</button>
+</div>
+
+<div *ngIf="optionMenuList2 == 'dashboard'">
+  <span>Este no es parte del LOGIN</span>
+</div>
