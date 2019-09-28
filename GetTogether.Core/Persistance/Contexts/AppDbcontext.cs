@@ -42,7 +42,7 @@ namespace GetTogether.Core.Persistance.Contexts
             builder.Entity<OpcionComida>().Property(oc => oc.Nombre).IsRequired().HasMaxLength(250).HasColumnType("VARCHAR(250)");
             builder.Entity<OpcionComida>().Property(oc => oc.Descripcion).IsRequired().HasMaxLength(250).HasColumnType("VARCHAR(250)");
             builder.Entity<OpcionComida>().Property(oc => oc.Costo).IsRequired().HasColumnType("DECIMAL(18, 2)");
-            builder.Entity<Lugar>().Property(l => l.Imagen).IsRequired().HasMaxLength(250).HasColumnType("VARCHAR(250)");
+            builder.Entity<OpcionComida>().Property(oc => oc.Imagen).IsRequired().HasMaxLength(250).HasColumnType("VARCHAR(250)");
             builder.Entity<OpcionComida>().Property(oc => oc.FechaOpcion).IsRequired().HasDefaultValue(DateTime.Now).ValueGeneratedOnAdd().HasColumnType("DATETIME");
             builder.Entity<OpcionComida>().Property(oc => oc.FechaOpcionModificacion).IsRequired().HasDefaultValue(DateTime.Now).ValueGeneratedOnAdd().HasColumnType("DATETIME");
             //builder.Entity<OpcionComida>().HasOne<Lugar>(oc => oc.Lugar).WithMany(oc => oc.OpcionesComida).HasForeignKey(oc => oc.LugarId);
