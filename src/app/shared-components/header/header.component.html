@@ -1,15 +1,16 @@
-<mat-toolbar color="primary" class="toolbar-login">
+<mat-toolbar color="primary" class="login-toolbar">
     <div class="container-fluid">
-        <div class="row" *ngIf="optionMenuList == 'login'">
-            <div class="col-md-12 text-right">
+        <div class="row" >
+            <!-- Página de LOGIN -->
+            <div class="col-md-12 text-right" *ngIf="optionMenuList === 'login'">
                 <app-menu-list [optionMenuList2]="optionMenuList"></app-menu-list>
             </div>
-        </div>
-        <div class="row" *ngIf="optionMenuList == 'dashboard'">
-                <div class="col-md-12 text-right">
-                    <app-menu-list [optionMenuList2]="optionMenuList"></app-menu-list>
-                </div>
+            <!-- Página de Dashboard -->
+            <div class="col-md-12 text-right" *ngIf="optionMenuList === 'dashboard'">
+              <app-menu-list [optionMenuList2]="optionMenuList"></app-menu-list>
+            </div>
         </div>
     </div>
 </mat-toolbar>
+
 
