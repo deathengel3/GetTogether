@@ -7,9 +7,10 @@ namespace GetTogether.Data.Resources
 {
     public class LugarResource
     {
-        //public int IdLugar { get; set; }
+        public int IdLugar { get; set; }
         public string NombreLugar { get; set; }
         public string DireccionLugar { get; set; }
+        public string Imagen { get; set; }
         public IEnumerable<OpcionComida> OpcionesComida { get; set; }
         //public DateTime FechaLugar { get; set; }
     }

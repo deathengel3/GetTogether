@@ -12,6 +12,7 @@ namespace GetTogether.Data.Models
         public string Nombre { get; set; }
         public string Descripcion { get; set; }
         public decimal Costo { get; set; }
+        public string Imagen { get; set; }
         public int LugarId { get; set; }
         public DateTime FechaOpcion {get; set;}
         public DateTime FechaOpcionModificacion { get; set; }

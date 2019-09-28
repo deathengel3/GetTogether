@@ -17,6 +17,7 @@ namespace GetTogether.Data.Resources
         [Required(ErrorMessage = "El costo es requerido")]
         public decimal Costo { get; set; }
         [Required(ErrorMessage = "El Lugar al que pertenece la comida es requerido")]
+        public string Imagen { get; set; }
         public int LugarId { get; set; }
     }
 }

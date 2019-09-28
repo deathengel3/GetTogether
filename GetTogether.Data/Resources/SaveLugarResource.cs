@@ -14,6 +14,7 @@ namespace GetTogether.Data.Resources
         [Required(ErrorMessage = "La dirección del lugar es requerido")]
         [MaxLength(250, ErrorMessage = "El número de caracteres de la dirección no debe sobrepasar los 250")]
         public string DireccionLugar { get; set; }
+        public string Imagen { get; set; }
         //public IEnumerable<OpcionComida> OpcionesComida { get; set; }
         //public DateTime FechaLugar { get; set; }
     }
